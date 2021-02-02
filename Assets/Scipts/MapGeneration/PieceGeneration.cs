@@ -10,8 +10,9 @@ public class PieceGeneration : MonoBehaviour
     [SerializeField] int maxWidth;
 
     [SerializeField] Transform groundTile;
-    [SerializeField] Transform endPosition;
+    [SerializeField] public Transform endPosition;
 
+    GameObject p;
 
     public Transform levelPartTransform { get; private set; }
 
@@ -45,7 +46,7 @@ public class PieceGeneration : MonoBehaviour
             levelPartTransform = Instantiate(groundTile,new Vector3(spawnPosition.x+x,0,0), Quaternion.identity);
             if (x == width - 1)
             {
-                levelPartTransform = Instantiate(endPosition, new Vector3(spawnPosition.x + x, 0, 0), Quaternion.identity);
+                levelPartTransform = Instantiate(endPosition, new Vector3(spawnPosition.x+x,0,0), Quaternion.identity);
             }
         }
         

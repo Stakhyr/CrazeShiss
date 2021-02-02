@@ -152,6 +152,14 @@ public class Character : MonoBehaviour
         magicBar.SetMagicAmount(currentMagicAmount);
     }
 
+    void fallingFromHeight() 
+    {
+        if (characterBody.position.y < -5f) 
+        {
+            FindObjectOfType<GameManaging>().endGame();
+        }
+    }
+
     #region MonoBehavior Callbacks
     void Start()
     {
@@ -182,6 +190,7 @@ public class Character : MonoBehaviour
     {
         
         movementSM.CurrentState.PhysicsUpdate();
+        fallingFromHeight();
     }
 
    
