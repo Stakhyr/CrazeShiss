@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{30A75F39-6321-3485-2F9C-F56C8DF20872}</ProjectGuid>
+    <ProjectGuid>{EA446E09-7938-0293-653D-A7DD4A072CDF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.Timeline.Editor</AssemblyName>
@@ -498,8 +498,11 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="clipper_library">
+      <HintPath>C:/Users/DS/Documents/GitHub/ShadowNinja/CrazeShiss/Library/PackageCache/com.unity.cinemachine@2.7.1/Runtime/ThirdParty/clipper_library.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/DS/Documents/GitHub/ShadowNinja/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/DS/Documents/GitHub/ShadowNinja/CrazeShiss/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.1f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -858,23 +861,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{57AC3B1A-EA1C-F3A8-C925-7F0F41F05C20}</Project>
+      <Project>{702D3AAB-9233-E531-7D69-8F5FF2C33EC1}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{BF76A4BD-693B-3EE8-FEB8-79AE1208294A}</Project>
+      <Project>{BA10E009-AE56-202C-D189-C00807EC0C1D}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{0CD8E0FF-FD0B-4A74-6D1B-7780A1EC4707}</Project>
+      <Project>{FF6837B3-4522-ECCC-FFDC-06064D7D42EB}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{162E9CFD-23EC-CF05-65D7-556E390C2021}</Project>
+      <Project>{5F5574EB-CFAF-9B89-3664-3B7E0CE0370F}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{FB8DF35C-BBCF-BB55-202D-A0B1EE98CEAE}</Project>
+      <Project>{C5CF95B9-8EC4-1F4D-A368-68997F716680}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

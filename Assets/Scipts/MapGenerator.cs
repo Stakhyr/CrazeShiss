@@ -42,7 +42,8 @@ public class MapGenerator : MonoBehaviour
             if (isHazard == true)
             {
                 isHazard = false;
-            } else
+            }
+            else
             {
                 if (Random.value < hazardChance)
                 {
@@ -60,7 +61,7 @@ public class MapGenerator : MonoBehaviour
             {
                 int hazardSize = Mathf.RoundToInt(Random.Range(1, maxHazardSize));
 
-                if (Random.value < spikeChance) 
+                if (Random.value < spikeChance)
                 {
                     // generate spike traps
                     for (int tiles = 0; tiles < hazardSize; tiles++)
@@ -69,53 +70,53 @@ public class MapGenerator : MonoBehaviour
 
                         for (int gndMid = 1; gndMid < 5; gndMid++)
                         {
-                            Instantiate(groundMid, new Vector2(blockNum, (blockHeight - gndMid) -2), Quaternion.identity);
+                            Instantiate(groundMid, new Vector2(blockNum, (blockHeight - gndMid) - 2), Quaternion.identity);
 
                         }
                         blockNum++;
                     }
 
                 }
-                else 
+                else
                 {
                     // holes in the ground
                     blockNum += hazardSize;
                 }
 
 
-            } 
+            }
             else if (Random.value < bridgeChance)
+            {
+                // bridge generation
+                int platformSize = Mathf.RoundToInt(Random.Range(minPlatformSize, maxPlatformSize));
+                blockHeight = blockHeight + Random.Range(maxDrop, maxHeight);
+
+                for (int tiles = 0; tiles < platformSize; tiles++)
                 {
-                    // bridge generation
-                    int platformSize = Mathf.RoundToInt(Random.Range(minPlatformSize, maxPlatformSize));
-                    blockHeight = blockHeight + Random.Range(maxDrop, maxHeight);
-
-                    for(int tiles=0; tiles<platformSize; tiles++) 
+                    if (tiles == 0 || tiles == platformSize - 1)
                     {
-                        if(tiles==0 || tiles == platformSize - 1) 
+                        Instantiate(ground_Top, new Vector2(blockNum, blockHeight), Quaternion.identity);
+
+                        for (int gndMid = 1; gndMid < 5; gndMid++)
                         {
-                                Instantiate(ground_Top, new Vector2(blockNum, blockHeight), Quaternion.identity);
-
-                                for (int gndMid = 1; gndMid < 5; gndMid++)
-                                {
-                                      Instantiate(groundMid, new Vector2(blockNum, blockHeight - gndMid), Quaternion.identity);
-
-                                }
-
-                                blockNum++;
+                            Instantiate(groundMid, new Vector2(blockNum, blockHeight - gndMid), Quaternion.identity);
 
                         }
-                        else 
-                        {
-                                Instantiate(bridge, new Vector2(blockNum, blockHeight), Quaternion.identity);
-                                blockNum++;
-                        }
+
+                        blockNum++;
+
                     }
-
+                    else
+                    {
+                        Instantiate(bridge, new Vector2(blockNum, blockHeight), Quaternion.identity);
+                        blockNum++;
+                    }
                 }
-            
 
-            else 
+            }
+
+
+            else
             {
 
                 bool isEnemyPlatform = false;
@@ -124,9 +125,9 @@ public class MapGenerator : MonoBehaviour
                 blockHeight = blockHeight + Random.Range(maxDrop, maxHeight);
 
                 // enemy generating
-                if (platformSize >= 3) 
+                if (platformSize >= 3)
                 {
-                    if (Random.value < 0.3f) 
+                    if (Random.value < 0.3f)
                     {
                         GetComponent<EnemyPlacement>().PlaceEnemy(new Vector2(blockNum + 1, blockHeight));
                         isEnemyPlatform = true;
@@ -143,26 +144,21 @@ public class MapGenerator : MonoBehaviour
 
                     }
                     // object placement
-                    if(tiles>0 && tiles < platformSize - 1)
+                    if (tiles > 0 && tiles < platformSize - 1)
                     {
                         if (Random.value < 0.2f)
                         {
                             GetComponent<ObjectPlacement>().PlaceObjects(new Vector2(blockNum, blockHeight), isEnemyPlatform);
                         }
                     }
-                   
+
                     blockNum++;
                 }
             }
 
 
-            
+
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

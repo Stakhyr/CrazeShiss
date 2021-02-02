@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    public int health = 30;
     public bool debugMode;
     public Transform player;
 
@@ -27,11 +29,13 @@ public class Enemy : MonoBehaviour
 
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-        mainBody = GetComponentInParent<Rigidbody2D>();
-        render = GetComponentInParent<SpriteRenderer>();
+        mainBody = GetComponent<Rigidbody2D>();
+        render = GetComponent<SpriteRenderer>();
 
     }
 
@@ -206,7 +210,20 @@ public class Enemy : MonoBehaviour
 
     }
 
+    //public void TakeDamage(int damage) 
+    //{
+    //    health -= damage;
+    //    Debug.Log(health);
+    //    if (health <= 0) 
+    //    {
+    //        Die();
+    //    }
+    //}
 
+    //public void Die() 
+    //{
+    //    Destroy(gameObject);
+    //}
 
     public void showRays(bool debugMode)
     {
